@@ -39,9 +39,9 @@ from libqtile.utils import guess_terminal
 
 import os
 import os.path
-import socket
-import datetime
 import spotify
+import re
+import subprocess
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -163,6 +163,13 @@ widget_defaults = dict(
 
 extension_defaults = widget_defaults.copy()
 
+# Return True if device has battery (laptop)
+def is_laptop():
+    machine_info = subprocess.check_output(["hostnamectl", "status"], universal_newlines=True)
+    m = re.search('Chassis: (.+?)\n', machine_info)
+    chassis_type = m.group(1)
+    return chassis_type == "laptop"
+
 screens = [
     Screen(
         bottom=bar.Bar(
@@ -194,9 +201,9 @@ screens = [
                     format="%d/%m/%Y %H:%M",
                     timezone="GMT+0",
                 ),
-                widget.Battery(
+                *([widget.Battery(
                     format="{percent:2.0%} {char}"
-                ),
+                )] if is_laptop() else []),
                 widget.Spacer(16),
                 spotify.Spotify(
                     foreground="#ffb86c",
