@@ -168,6 +168,7 @@ def is_laptop():
     machine_info = subprocess.check_output(["hostnamectl", "status"], universal_newlines=True)
     m = re.search('Chassis: (.+?)\n', machine_info)
     chassis_type = m.group(1)
+    chassis_type = chassis_type[:len(chassis_type)-2]
     return chassis_type == "laptop"
 
 screens = [
