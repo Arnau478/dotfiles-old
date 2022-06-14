@@ -46,12 +46,6 @@ import spotify
 mod = "mod4"
 terminal = guess_terminal()
 
-# color = open("./color.txt").readline().split()
-color = "#8cde63"
-
-if(os.path.isfile(os.path.expanduser("~") + "/.config/color")):
-    color = open(os.path.expanduser("~") + "/.config/color").readline().strip()
-
 keys = [
     # Switch between windows
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
@@ -100,10 +94,10 @@ keys = [
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.run_extension(extension.DmenuRun(
-        selected_background=color,
+        selected_background="#bd93f9",
         background="#222222",
         font="Cantarell",
-        foreground=color,
+        foreground="#bd93f9",
         selected_foreground="#ffffff",        
         
     )), desc="Spawn a command using a prompt widget"),
@@ -175,7 +169,7 @@ layouts = [
     layout.MonadTall(
         name="Half split",
         border_width=3,
-        border_focus=color,
+        border_focus="#bd93f9",
         single_border_width=0,
         border_normal="#222222",
         margin=8,
@@ -209,9 +203,9 @@ screens = [
                 widget.GroupBox(
                     highlight_color=["#44475a"],
                     highlight_method="line",
-                    this_current_screen_border=color,
+                    this_current_screen_border="#bd93f9",
                     inactive="#666666",
-                    block_highlight_text_color=color,
+                    block_highlight_text_color="#bd93f9",
                     active="#f8f8f2",
                     font="Font Awesome 6 Free",
                     disable_drag=True,
