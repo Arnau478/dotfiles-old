@@ -40,7 +40,6 @@ from libqtile.utils import guess_terminal
 import os
 import os.path
 import socket
-import easygui
 import datetime
 import spotify
 
