@@ -1,0 +1,1 @@
+conf/stran.py

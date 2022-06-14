@@ -1,0 +1,6 @@
+*
+!qtile/
+qtile/*
+!qtile/**
+!.gitignore
+*/__pycache__/*
