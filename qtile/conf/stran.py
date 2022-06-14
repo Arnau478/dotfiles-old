@@ -198,8 +198,8 @@ screens = [
                 widget.Systray(),
                 widget.Spacer(8),
                 widget.Clock(
-                    format="%d/%m/%Y %H:%M",
-                    timezone="GMT+0",
+                    format="%d/%m ~ %H:%M",
+                    timezone="GMT+1",
                 ),
                 *([widget.Battery(
                     format="{percent:2.0%} {char}"
