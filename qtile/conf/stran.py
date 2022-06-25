@@ -167,6 +167,7 @@ extension_defaults = widget_defaults.copy()
 def is_laptop():
     machine_info = subprocess.check_output(["hostnamectl", "status"], universal_newlines=True)
     m = re.search('Chassis: (.+?)\n', machine_info)
+    if m == None: return True
     chassis_type = m.group(1)
     chassis_type = chassis_type[:len(chassis_type)-2]
     return chassis_type == "laptop"
@@ -200,7 +201,7 @@ screens = [
                 widget.Spacer(8),
                 widget.Clock(
                     format="%d/%m ~ %H:%M",
-                    timezone="GMT+1",
+                    timezone="Europe/Madrid",
                 ),
                 *([widget.Battery(
                     format="{percent:2.0%} {char}"
