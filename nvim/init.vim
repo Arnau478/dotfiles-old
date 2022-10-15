@@ -20,11 +20,15 @@ Plug 'dracula/vim'
 " Code completion
 Plug 'prabirshrestha/vim-lsp'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/pynvim'
 
 call plug#end()
 
 let g:airline_powerline_fonts = 1
 let g:NERDTreeQuitOnOpen = 1
+
+" 4-space indentation
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 colorscheme dracula
 
