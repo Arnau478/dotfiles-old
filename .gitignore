@@ -8,5 +8,8 @@ nvim/*
 !picom/
 picom/*
 !picom/**
+!rofi/
+rofi/*
+!rofi/**
 !.gitignore
 __pycache__
