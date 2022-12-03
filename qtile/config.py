@@ -1,1 +1,1 @@
-conf/stran.py
+conf/dotted.py
