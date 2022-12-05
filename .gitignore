@@ -11,5 +11,8 @@ picom/*
 !rofi/
 rofi/*
 !rofi/**
+!dunst/
+dunst/*
+!dunst/**
 !.gitignore
 __pycache__
