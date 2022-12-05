@@ -1,0 +1,3 @@
+[submodule "dunst"]
+	path = dunst
+	url = https://github.com/dracula/dunst
