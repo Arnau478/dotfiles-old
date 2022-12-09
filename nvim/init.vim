@@ -1,9 +1,22 @@
 map ,d :NERDTreeToggle<cr>
 map ,r :te make run<cr>:norm G<cr>
-" Go-to commands
+map ,cr :te make clean run<cr>:norm G<cr>
+map ,f :call CreateFile()<cr>
+map ,n :set number!<cr>
+
+function! CreateFile()
+    let path = input("Create file: ", expand("%:p:h").."/", "file")
+    execute "!mkdir -p " .. fnamemodify(path, ":p:h")
+    execute "!touch " .. fnamemodify(path, ":p")
+    call feedkeys("<cr>")
+    echo "Created " .. fnamemodify(path, ":t")
+endfunction
+
+" Coc
 map gd <Plug>(coc-definition)
 map gi <Plug>(coc-implementation)
 map gr <Plug>(coc-references)
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 call plug#begin()
 
@@ -21,6 +34,7 @@ Plug 'dracula/vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/pynvim'
+Plug 'ziglang/zig.vim'
 
 call plug#end()
 
@@ -33,3 +47,9 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 colorscheme dracula
 
 au TermClose * call feedkeys("i") " When exit command is run on a terminal, exit
+
+" 4-space indent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
