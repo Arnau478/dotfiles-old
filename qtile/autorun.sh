@@ -1,3 +1,3 @@
-feh --bg-center ~/.config/qtile/wall.png &
+feh --bg-fill ~/.config/qtile/wall.png &
 setxkbmap es
 picom &
